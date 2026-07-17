@@ -2,6 +2,28 @@ let todos = [];
 const input = document.getElementById("todoInput");
 const addBtn = document.getElementById("addBtn");
 const list = document.getElementById("todoList");
+const themeToggle = document.getElementById("themeToggle");
+
+// 1. เช็กก่อนว่ารอบที่แล้วผู้ใช้เปิด Dark Mode ค้างไว้ไหม
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    themeToggle.textContent = "☀️ Light Mode";
+}
+
+// 2. ดักจับการคลิกที่ปุ่มสลับโหมด
+themeToggle.addEventListener("click", () => {
+    // สลับคลาส dark-mode (ถ้าไม่มีก็เติม ถ้ามีก็เอาออก)
+    document.body.classList.toggle("dark-mode");
+    
+    // เช็กสถานะปัจจุบันหลังจากกด เพื่อเปลี่ยนข้อความบนปุ่มและบันทึกลง LocalStorage
+    if (document.body.classList.contains("dark-mode")) {
+        themeToggle.textContent = "☀️ Light Mode";
+        localStorage.setItem("theme", "dark");
+    } else {
+        themeToggle.textContent = "🌙 Dark Mode";
+        localStorage.setItem("theme", "light");
+    }
+});
 
 addBtn.addEventListener("click", addTodo);
 
