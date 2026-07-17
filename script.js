@@ -101,4 +101,20 @@ function createTodo(todo){
     list.appendChild(li);
 
 }
+
+function updateStats(){
+
+    const total = todos.length;
+
+    const done = todos.filter(todo => todo.done).length;
+
+    const left = total - done;
+
+    document.getElementById("totalCount").textContent = total;
+
+    document.getElementById("doneCount").textContent = done;
+
+    document.getElementById("leftCount").textContent = left;
+
+}
 loadTodos();
