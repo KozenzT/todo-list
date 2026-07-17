@@ -80,7 +80,7 @@ function createTodo(todo){
 
     const del = document.createElement("button");
 
-    del.textContent="ลบ";
+    del.innerHTML="🗑️";
 
     del.className="delete";
 
