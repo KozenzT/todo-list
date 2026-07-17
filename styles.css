@@ -134,6 +134,65 @@ span{
     margin-bottom:20px;
 }
 
+/* กำหนดสไตล์ให้ปุ่มเปิด-ปิดนิดนึง */
+.theme-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================
+   CSS สำหรับโหมดมืด (Dark Mode)
+   ========================================== */
+
+/* 1. เปลี่ยนพื้นหลังของหน้าเว็บทั้งหมด จากสีม่วงเป็นสีเทาเข้ม */
+body.dark-mode {
+    background-color: #1e1e24; 
+}
+
+/* 2. เปลี่ยนตัวกล่องสีขาวตรงกลาง (.container) ให้เป็นสีเข้ม */
+body.dark-mode .container {
+    background-color: #2a2a36;
+    color: #ffffff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* ปรับเงาให้ดูมีมิติในโหมดมืด */
+}
+
+/* 3. เปลี่ยนสีข้อความคำอธิบายย่อย */
+body.dark-mode .subtitle {
+    color: #b0b0bc;
+}
+
+/* 4. ช่องพิมพ์ข้อความ (Input) */
+body.dark-mode #todoInput {
+    background-color: #3b3b4f;
+    color: #ffffff;
+    border: 1px solid #4a4a65;
+}
+
+/* 5. กล่องสถิติ 3 กล่อง (.card) */
+body.dark-mode .card {
+    background-color: #353546;
+    color: #ffffff;
+}
+
+/* 6. ตัวรายการ Todo แต่ละแถว (li) */
+body.dark-mode li {
+    background-color: #353546;
+    color: #ffffff;
+}
+
+/* 7. ปุ่ม "เพิ่ม" (แถมให้เพื่อความเข้ากัน) */
+body.dark-mode #addBtn {
+    background-color: #5c6bc0; /* ปรับสีม่วงให้อ่อนลงเล็กน้อยเพื่อให้สบายตาในโหมดมืด */
+}
+
 @keyframes fadeIn{
 
     from{
