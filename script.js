@@ -42,22 +42,6 @@ function saveTodos() {
     localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-function loadTodos() {
-
-    const data = localStorage.getItem("todos");
-
-    if(data){
-
-        todos = JSON.parse(data);
-
-        todos.forEach(todo=>{
-            createTodo(todo);
-        });
-
-    }
-
-}
-
 function createTodo(todo){
 
     const li = document.createElement("li");
@@ -81,17 +65,16 @@ function createTodo(todo){
         updateStats();
 
     }
-    }
 
     const del = document.createElement("button");
 
-    del.innerHTML="🗑️";
+    del.innerHTML = "🗑️";
 
-    del.className="delete";
+    del.className = "delete";
 
-    del.onclick=function(){
+    del.onclick = function(){
 
-        todos = todos.filter(t=>t.id!==todo.id);
+        todos = todos.filter(t => t.id !== todo.id);
 
         saveTodos();
 
