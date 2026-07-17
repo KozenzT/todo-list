@@ -26,14 +26,16 @@ function addTodo(){
         done:false
 
     };
-
     todos.push(todo);
 
     saveTodos();
 
     createTodo(todo);
 
+    updateStats();
+
     input.value="";
+
 }
 
 function saveTodos() {
@@ -76,6 +78,9 @@ function createTodo(todo){
 
         saveTodos();
 
+        updateStats();
+
+    }
     }
 
     const del = document.createElement("button");
@@ -91,6 +96,8 @@ function createTodo(todo){
         saveTodos();
 
         li.remove();
+
+        updateStats();
 
     }
 
@@ -115,6 +122,23 @@ function updateStats(){
     document.getElementById("doneCount").textContent = done;
 
     document.getElementById("leftCount").textContent = left;
+
+}
+function loadTodos() {
+
+    const data = localStorage.getItem("todos");
+
+    if(data){
+
+        todos = JSON.parse(data);
+
+        todos.forEach(todo=>{
+            createTodo(todo);
+        });
+
+    }
+
+    updateStats();
 
 }
 loadTodos();
